@@ -1,25 +1,25 @@
 ---
 title: "Boletín Tema 1"
 subtitle: Tratamiento de Datos. Grado en Ciencia de Datos- UV
-author: "Marcelino Martínez"
+author: "Pere Caimari Fuster"
 date:  "`r Sys.Date()`"  #Pondría la fecha del día actual
 params:
   lang: ES
 lang: "`r switch(params$lang, ES = 'es-ES', EN = 'en-US')`"
 output:
-  pdf_document:
-    toc: no
-    toc_depth: 3
-    number_sections: yes
-  html_notebook:
-    echo: yes
-    number_sections: yes
-    toc: yes
   html_document:
     echo: yes
     number_sections: yes
     theme: lumen
     toc: yes
+  html_notebook:
+    echo: yes
+    number_sections: yes
+    toc: yes
+  pdf_document:
+    toc: no
+    toc_depth: 3
+    number_sections: yes
 language:
   label:
     fig: 'Figura '
@@ -92,21 +92,29 @@ b.  Usa las funciones **dim, head, tail, str** para una primera visión de los c
 c.  Muestra los nombres de las filas y las columnas (**rownames**, **colnames**)
 
 ```{r}
+# Apartado a
+help(package = "robustbase", topic = "Animals2")
+help(package = "MASS", topic = "mammals")
 
+# Apartado b
+dim(Animals2)
+dim(mammals)
 
+head(Animals2)
+head(mammals)
 
+tail(Animals2)
+tail(mammals)
 
+str(Animals2)
+str(mammals)
 
+# Apartado c
+rownames(Animals2)
+rownames(mammals)
 
-
-
-
-
-
-
-
-
-
+colnames(Animals2)
+colnames(mammals)
 
 
 ```
