@@ -124,6 +124,7 @@ d.  Usa la función **intersect** y almacena en la variable *commonAnimals* los 
 ```{r}
 
 commonAnimals <- intersect(x = mammals, y = Animals2)
+commonAnimals
 
 
 ```
@@ -132,10 +133,11 @@ e.  Usa **setdiff** para averiguar qué animales no están en ambos conjuntos. �
 
 ```{r}
 
-setdiff(x = mammals$body, y = Animals2$body)
+diferentes<-setdiff(Animals2, mammals)
+rownames(diferentes)
 
-
-
+# Hay 3 animales diferentes
+# Esos son: Diplodocus, Triceratops y Brachiosaurus
 
 ```
 
