@@ -145,14 +145,7 @@ e.  Determina las diferencia entre los animales que no aparecen en ambos conjunt
 
 ```{r}
 
-
-
-
-
-
-
-
-
+# No existe una correspondencia entre el peso de sus cuerpos y el de sus cerebros. También se diferencian en el peso tanto de cuerpo como de cerebro.
 
 
 
