@@ -203,29 +203,22 @@ dim(libReturn$results)
 
 ```{r}
 
+# Apartado A
+# Determinamos el número de variables y registros
+str(cabbages)
 
+# Tiene 60 registros de 4 variables, tres de las variables son Factors y la otra es numérica
 
+# Apartado B
+colSums(is.na(x = cabbages))
 
+# Apartado C
+str(Chile)
+colSums(is.na(x = Chile))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Apartado D
+summary(cabbages)
+summary(Chile)
 
 
 
