@@ -238,7 +238,9 @@ qqPlot(cabbages$VitC)
 
 ```{r}
 
-
+hist(cabbages$VitC[cabbages$Cult == "c39"])
+hist(cabbages$VitC[cabbages$Cult == "c52"])
+# Podemos ver como para c52 los valores son mucho más altos mientras que para c39 se quedan "estancados" en 55
 
 ```
 
