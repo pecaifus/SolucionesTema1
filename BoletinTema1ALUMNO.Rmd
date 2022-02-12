@@ -179,12 +179,16 @@ qqPlot(log(Animals2$brain))
 
     ```{r}
 
+# Apartado A
+libReturn <- library()
+str(libReturn)
 
+# Apartado B
+head(libReturn$results)
 
-
-
-
-
+# Apartado C
+dim(libReturn$results)
+# Tengo instaladas 282 librerías
 
 
 
