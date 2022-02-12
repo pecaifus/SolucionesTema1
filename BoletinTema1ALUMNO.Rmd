@@ -7,19 +7,19 @@ params:
   lang: ES
 lang: "`r switch(params$lang, ES = 'es-ES', EN = 'en-US')`"
 output:
+  pdf_document:
+    toc: no
+    toc_depth: 3
+    number_sections: yes
+  html_notebook:
+    echo: yes
+    number_sections: yes
+    toc: yes
   html_document:
     echo: yes
     number_sections: yes
     theme: lumen
     toc: yes
-  html_notebook:
-    echo: yes
-    number_sections: yes
-    toc: yes
-  pdf_document:
-    toc: no
-    toc_depth: 3
-    number_sections: yes
 language:
   label:
     fig: 'Figura '
@@ -250,7 +250,7 @@ hist(cabbages$VitC[cabbages$Cult == "c52"])
 #Diagrama de dispersión global.
 plot(whiteside$Temp, whiteside$Gas)
 #Diagrama de dispersión etiquetando según un factor.
-plot(whiteside$Temp, whiteside$Gas, pch=c(6,16)[whiteside\$Insul])
+plot(whiteside$Temp, whiteside$Gas, pch=c(6,16)[whiteside$Insul])
 legend(x="topright",legend=c("Insul = Before","Insul = After"), pch=c(6,16))
 # Planteamos 2 modelos lineales, uno para los datos de cada factor
 Model1 <- lm(Gas ~ Temp, data = whiteside, subset = which(Insul == "Before"))
@@ -260,39 +260,23 @@ abline(Model1, lty=2)
 abline(Model2)
 ```
 
-```{r,echo=T,include=T,eval=F}
-
-
-
-
-
-
-
-
-
-
-
-
-```
 
 a.  Utiliza un procedimiento análogo para determinar si se aprecia una relación lineal entre los niveles de vitamina C, **VitC** en función del peso de la calabaza, **HeadWt**, en el conjunto de datos **cabbages**.
+
+
 b.  Repite el apartado anterior, pero obteniendo un modelo para cada una de las dos variedades de calabaza, **Cult**. Ver[Parámetros básicos plot](https://www.statmethods.net/advgraphs/parameters.html).
 
 ```{r}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+plot(cabbages$HeadWt, cabbages$VitC)
+plot(cabbages$HeadWt, cabbages$VitC, pch = c(6,16)[cabbages$Cult])
+legend(x = "topright", legend = c("Cult = c39", "Cult = c52"), pch = c(6,16))
+ModelA <- lm(VitC ~ HeadWt, data = cabbages)
+ModelB <- lm(VitC ~ HeadWt, data = cabbages, subset = which(Cult == "c39"))
+ModelC <- lm(VitC ~ HeadWt, data = cabbages, subset = which(Cult == "c52"))
+abline(ModelA, lty = 1, col = "green")
+abline(ModelB, lty = 2)
+abline(ModelC)
 
 
 ```
@@ -300,7 +284,8 @@ b.  Repite el apartado anterior, pero obteniendo un modelo para cada una de las 
 c.  Usa **summary** con cada uno de los modelos obtenidos y observa **Coefficients**. Dado que hemos planteado un modelo $y=mx+n$, donde $y=VitC$ y $x=HeadWt$. La función **lm** nos permite obtener **(Intercept)**; **n** y la pendiente **HeadWt**; **m** (además de otros parámetros adicionales que evalúan la caracterísiticas del modelo). Observa que en todos los casos, la pendiene es negativa indicando que las calabazas de más peso contienen menos vitamina C. No te preocupes por el resto de parámetros del modelo, por el momento.
 
 ```{r}
-
-
+summary(ModelA)
+summary(ModelB)
+summary(ModelC)
 
 ```
