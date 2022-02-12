@@ -92,6 +92,8 @@ b.  Usa las funciones **dim, head, tail, str** para una primera visión de los c
 c.  Muestra los nombres de las filas y las columnas (**rownames**, **colnames**)
 
 ```{r}
+rm(list = ls())
+
 # Apartado a
 help(package = "robustbase", topic = "Animals2")
 help(package = "MASS", topic = "mammals")
@@ -124,7 +126,6 @@ d.  Usa la función **intersect** y almacena en la variable *commonAnimals* los 
 ```{r}
 
 commonAnimals <- intersect(x = mammals, y = Animals2)
-commonAnimals
 
 
 ```
@@ -133,11 +134,17 @@ e.  Usa **setdiff** para averiguar qué animales no están en ambos conjuntos. �
 
 ```{r}
 
-diferentes<-setdiff(Animals2, mammals)
-rownames(diferentes)
+# Animales en Animals2 que no estén mammals
+diferentes1<-setdiff(Animals2, mammals)
+rownames(diferentes1)
 
 # Hay 3 animales diferentes
 # Esos son: Diplodocus, Triceratops y Brachiosaurus
+
+# Animales en mammals que no estén en Animals2
+diferentes2<- setdiff(mammals, Animals2)
+rownames(diferentes2)
+
 
 ```
 
